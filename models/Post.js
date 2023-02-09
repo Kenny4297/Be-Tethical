@@ -14,13 +14,9 @@ Post.init(
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
         },
         post_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         post_title: {

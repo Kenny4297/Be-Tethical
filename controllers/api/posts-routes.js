@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['id', 'user_id', 'post_id', 'comment_date', 'comment_content']
+                    attributes: ['id', 'user_id', 'post_id', 'post_date', 'post_content']
                 }
             ]
         });
@@ -41,12 +41,12 @@ router.get('/:id' , async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         let createPost = await Post.Create({
-            postDate: null, //again, awaiting DayJS() to replace NULL
+            postDate: req.body.post_date,
             postText: req.body.post_content,
             postTitle: req.body.post_title,
             user_id: req.session.user.user_id
         })
-        res.status(201).send("Post added successfully!")
+        res.status(201).send(createPost)
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
@@ -79,7 +79,7 @@ router.delete('/:id', async (req, res) => {
     let postId = req.params.id;
 
     try {
-        let postToDelete = await Post.destroy({ where: { id: req.params.id }});
+        let postToDelete = await Post.destroy({ where: { id: postId }});
 
         if (!postToDelete) {
             res.status(404).send("Sorry, no post found!")

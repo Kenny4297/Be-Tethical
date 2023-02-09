@@ -13,14 +13,11 @@ router.get('/', async (req, res) => {
     }
 })
 
-
-router.post('/', async (req, res) => {
-    //Use DayJS() to add the date to the post
-    
+router.post('/', async (req, res) => {    
     //Try to create the comment
     try {
         let createdComment = await Comment.create({
-            commentDate:  NULL,//insert DayJS() here and get rid of null
+            commentDate: req.body.comment_date,
             commentText: req.body.comment_content,
             //Session are required to make sure the user is still logged in to make this comment??
             user_id: req.session.user_id,
