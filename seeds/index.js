@@ -1,0 +1,1 @@
+//We will need a "seeds.json" and to populate this file with the correct data. See activity 7 for a reference, and the E-Commerce Project as well
