@@ -1,3 +1,11 @@
 {{>nav }}
 
 <h1>This is the home page from the "home.handlebars" file</h1>
+
+{{#each posts }}
+<li>
+
+    {{>post-info posts}}
+</li>
+
+{{#each }}

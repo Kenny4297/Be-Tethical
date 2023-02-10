@@ -1,0 +1,15 @@
+nav {
+    background-color: lightgreen;
+    border: 2px solid red;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style: none;
+    margin-top: 10px;
+}

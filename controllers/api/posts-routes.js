@@ -8,12 +8,11 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Comment,
+                    //I want to view these specific details
                     attributes: ['id', 'user_id', 'post_id', 'post_date', 'post_content']
                 }
             ]
         });
-
-        const sequelizePostData = getPostData.map((post) => post.get({ plain: true }));
 
         res.json(sequelizePostData)
     } catch (err) {
@@ -22,6 +21,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+//Get a specific post
 router.get('/:id' , async (req, res) => {
     let postId = req.params.id;
 
@@ -38,6 +38,7 @@ router.get('/:id' , async (req, res) => {
     }
 });
 
+//Create a post
 router.post('/', async (req, res) => {
     try {
         let createPost = await Post.Create({
@@ -53,6 +54,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+//Update a post
 router.put('/:id', async (req, res) => {
     let postId = req.params.id;
 
@@ -75,6 +77,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+//Delete a post
 router.delete('/:id', async (req, res) => {
     let postId = req.params.id;
 

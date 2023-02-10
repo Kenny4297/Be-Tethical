@@ -16,8 +16,10 @@ Post.belongsTo(User, { foreignKey: 'user_id'});
 Post.hasMany(Comment, { foreignKey: 'post_id'});
 
 //USERS
-User.hasMany(Comment, { foreignKey: 'comment_id'});
+User.hasMany(Comment, { foreignKey: 'user_id'});
 
-User.belongsToMany(Post, { foreignKey: 'user_id'})
+User.hasMany(Post, { foreignKey: 'user_id'})
+
+module.exports = { Comment, Post, User };
 
 
