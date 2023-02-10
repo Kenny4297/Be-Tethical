@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const express = require('express');
-const User = require('../models/User.js');
-const Post = require('../models/Post.js');
-const Comment = require('../models/Comment.js');
+// const User = require('../models/User.js');
+// const Post = require('../models/Post.js');
+// const Comment = require('../models/Comment.js');
+const { User, Post, Comment } = require('../models');
 const sequelize = require('../config/connection.js');
 
 //The '/home' route
@@ -51,7 +52,7 @@ router.get('/', async (req, res) => {
       // loggedIn: req.session.loggedIn
     });
   } catch (err) {
-    console.log("This didn't work...")
+    console.log(err)
     res.status(500).json(err);
   }
 });

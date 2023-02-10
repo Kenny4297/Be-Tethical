@@ -14,6 +14,10 @@ Post.init(
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         },
         post_date: {
             type: DataTypes.STRING,
@@ -34,7 +38,7 @@ Post.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Post',
+        modelName: 'post',
     }
 );
 
