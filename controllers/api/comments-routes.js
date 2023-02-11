@@ -13,20 +13,22 @@ router.get('/', async (req, res) => {
 })
 
 //Create a comment
-router.post('/', async (req, res) => {    
-    try {
-        //I think that this is the data that I need, will add more if necessary
-        let createdComment = await Comment.create({
-            commentDate: req.body.comment_date,
-            commentText: req.body.comment_content,
-            //Session are required to make sure the user is still logged in to make this comment??
-            user_id: req.session.user_id,
-        });
-        res.json(createdComment)
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
+router.post('/', async (req, res) => {  
+    if (req.session) {
+        try {
+            //I think that this is the data that I need, will add more if necessary
+            let createdComment = await Comment.create({
+                commentDate: req.body.comment_date,
+                commentText: req.body.comment_content,
+                //Session are required to make sure the user is still logged in to make this comment??
+                user_id: req.session.user_id,
+            });
+            res.json(createdComment)
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    }  
 });
 
 //Update a comment

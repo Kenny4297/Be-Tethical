@@ -8,6 +8,19 @@
   <title>Document</title>
 </head>
 <body>
+  <nav>
+    <ul>
+        <li><a href='/'>Home</a></li>
+        {{!-- Only if the user is logged in will this link appear --}}
+        {{#if logged_in}}
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/" id="logout">Logout</a></li>
+        {{else}}
+            <li><a href="/login">Dashboard</a></li>
+            <li><a href='/login'>Login</a></li>
+        {{/if}}
+    </ul>
+  </nav>
 
   {{{ body }}}
 

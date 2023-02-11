@@ -30,12 +30,12 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = createUser.id;
       req.session.username = createUser.username;
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
       res.json(createUser)
     })
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: err})
+    res.status(500).json({ message: err })
   }
 });
 
@@ -139,13 +139,8 @@ router.post('/login', async (req, res) => {
       res.status(400).send("Sorry, could not find that email!");
       return;
     } 
-    
-    console.log(req.body.password);
-    console.log(typeof(req.body.password))
 
     const passwordCheck = findUser.checkPassword(req.body.password);
-
-    console.log(passwordCheck); //This returns false even if the password from the seed matches the 'req.body.password'
 
     if (!passwordCheck) {
       res.status(400).send("Sorry, this is an incorrect password!")
@@ -154,7 +149,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = findUser.id;
       req.session.username = findUser.username;
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
       res.send("Log in Successful")
     })
     } catch (err) {
@@ -163,10 +158,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
 //Log the user out and kill the session
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
       req.session.destroy(() => {
           res.status(204).end();
       });

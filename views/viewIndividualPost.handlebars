@@ -2,7 +2,7 @@
 
 {{> individualPosts post}}
 
-{{#if loggedIn}}
+{{#if logged_in}}
 <form id="comment-form">
     
     <label> Comment </label>
@@ -14,6 +14,6 @@
 
 {{> individualComments post.comments}}
 
-{{#if loggedIn}}
+{{#if logged_in}}
 <script src="/js/comments.js"></script>
 {{/if}}

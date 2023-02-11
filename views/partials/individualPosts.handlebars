@@ -1,6 +1,6 @@
 <div class="post-item">
     <div class="post-header"> 
-        {{#if loggedIn}}
+        {{#if logged_in}}
         <h1>
             <p>{{post_title}}</p>
         </h1>
@@ -15,7 +15,7 @@
         {{ post_content }}
     </div>
 
-    {{#if loggedIn}}
+    {{#if logged_in}}
         <p>Add a comment!</p>
 
     {{/if }}

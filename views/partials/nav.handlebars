@@ -1,13 +1,14 @@
-<nav>
+{{!-- <nav>
     <ul>
         <li><a href='/'>Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
 
         {{!-- Only if the user is logged in will this link appear --}}
         {{#if logged_in}}
-            <a href="/" id="logout">Logout</a>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout" id="logout">Logout</a></li>
         {{else}}
+            <li><a href="/login">Dashboard</a></li>
             <li><a href='/login'>Login</a></li>
         {{/if}}
     </ul>
-</nav>
+</nav> --}}

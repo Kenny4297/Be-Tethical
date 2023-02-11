@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
         const allPosts = findAllPosts.map((post) => post.get({ plain: true }))
         res.render('dashboard', { 
             allPosts, 
-            loggedIn: true 
+            logged_in: true 
         })
     } catch {
         console.log(err);
@@ -64,7 +64,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             return
         } else {
             const specificPost = updatePost.get({ plain: true });
-            res.render('editPost', { specificPost, loggedIn: true })
+            res.render('editPost', { specificPost, logged_in: true })
         }
     } catch (err) {
         console.log(err);

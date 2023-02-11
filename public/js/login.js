@@ -50,15 +50,13 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        alert("sign up successful")
+        alert("sign up successful"),
         document.location.replace('/dashboard');
       } else {
         alert('Failed to sign up.');
       }
     }
   };
-  
-
   
   document
     .querySelector('.signup-form')
