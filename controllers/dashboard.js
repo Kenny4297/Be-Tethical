@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const express = require('express');
-const User = require('../models/User.js');
-const Post = require('../models/Post.js');
-const Comment = require('../models/Comment.js');
+const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+//    /dashboard
 //The same as the home page, but only accessible to logged in users
 router.get('/', withAuth, async (req, res) => {
     try {
@@ -17,7 +17,8 @@ router.get('/', withAuth, async (req, res) => {
         const allPosts = findAllPosts.map((post) => post.get({ plain: true }))
         res.render('dashboard', { 
             allPosts, 
-            loggedIn: true })
+            loggedIn: true 
+        })
     } catch {
         console.log(err);
         res.status(500).json(err);
@@ -70,5 +71,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         res.status(500).send(err)
     }
 });
+
+router.get('/createPost', (req, res) => {
+    res.render('addPost');
+})
 
 module.exports = router;

@@ -1,11 +1,14 @@
 {{>nav }}
 
-<h1>This is the home page from the "home.handlebars" file</h1>
+<div class="home-title">
+    <h1 class="home-h1">Welcome to "Be Tethical"!</h1>
+    <h4 class="home-h4">By Gavin Benson</h4>
+</div>
 
-{{#each posts }}
-<li>
-
-    {{>individualPosts posts}}
+{{!-- You need this "|post|" as the [i] variable. Whenever you reference "|post|", you need to keep the "post" variable --}}
+{{#each posts as |post| }}
+<li class="home-posts-area">
+    {{> individualPosts post}}
 </li>
 
 {{/each }}

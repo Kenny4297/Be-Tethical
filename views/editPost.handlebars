@@ -1,0 +1,19 @@
+{{!-- Here we can edit and view a post when the user clicks on it --}}
+
+<div>
+    <h2>Edit Post</h2>
+    <form>
+        <label for="post-title">Edit Title</label>
+        <input type="text" name="post-title" value="{{post.post_title}}" />
+
+        <label for="post-content">Edit Post</label>
+        <input type="text" name="post-content" value="{{post.post_content}}" />
+
+        <button type="submit" class="button edit-post-button">Confirm Changes</button>
+        <button type="button" class="button delete-post-button">Delete Post</button>
+    </form>
+</div>
+
+<script src="/js/editPost.js"></script>
+<script src="/js/deletePost.js"></script>
+

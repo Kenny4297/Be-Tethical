@@ -1,11 +1,22 @@
 <div class="post-item">
     <div class="post-header"> 
+        {{#if loggedIn}}
         <h1>
-            <a href="/post/{{id}}">{{post_title}}</a>
+            <p>{{post_title}}</p>
         </h1>
+            {{else}}
+            <h1>
+                <a href="/post/{{id}}">{{post_title}}</a>
+            </h1>
+        {{/if}}
         <p>{{user.username}} made this post on {{ format_date post_date }} </p>
     </div>
     <div class="post-body">
         {{ post_content }}
     </div>
+
+    {{#if loggedIn}}
+        <p>Add a comment!</p>
+
+    {{/if }}
 </div>

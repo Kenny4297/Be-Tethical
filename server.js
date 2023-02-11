@@ -8,7 +8,6 @@ const hbs = exphbs.create({ helpers });
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-
 // Creating a session
 const sess = {
   secret: 'Super secret secret',
@@ -19,7 +18,6 @@ const sess = {
       db: sequelize
   })
 };
-
 
 //Initializing express
 app = express();
@@ -49,6 +47,7 @@ app.use(routes);
 
 //! For when I get Sequelize stuff running
 sequelize.sync({ force: false }).then(() => {
+    //Also can import the Seeds file then change the above to "true"
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
   });
   

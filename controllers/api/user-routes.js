@@ -1,13 +1,14 @@
 const router = require('express').Router();
-const User = require('../../models/User.js');
-const Post = require('../../models/Post.js');
-const Comment = require('../../models/Comment.js');
+const { User, Post, Comment } = require('../../models');
+
 
 //! The following ties in with the "login" HTML page to obtain the req.body
+
+// "/api/users"
 //Get all Users
 router.get('/', async (req, res) => {
   try {
-    //Make sure the password isn't returned for s
+    //Make sure the password isn't returned for security reasons  
     let getAllUsers = await User.findAll({ attributes: { exclude: ['password']}});
 
     res.json(getAllUsers);
@@ -27,14 +28,14 @@ router.post('/', async (req, res) => {
     })
 
     req.session.save(() => {
-      res.session.user_id = createUser.id;
+      req.session.user_id = createUser.id;
       req.session.username = createUser.username;
       req.session.loggedIn = true;
       res.json(createUser)
     })
   } catch (err) {
     console.log(err);
-    res.statusMessage(500).json(err)
+    res.status(500).json({ message: err})
   }
 });
 
@@ -125,31 +126,38 @@ router.delete('/:id', async (req, res) => {
 
 //User validation for a log in
 router.post('/login', async (req, res) => {
+  let userEmail = req.body.email;
   try {
+    let log = ("checking login API router firing")
     const findUser = await User.findOne({
       where: {
-        email: req.body.email
+        email: userEmail
       }
     })
+
     if (!findUser) {
       res.status(400).send("Sorry, could not find that email!");
       return;
-    } else {
-      const passwordCheck = findUser.checkPassword(req.body.password);
-    }
+    } 
+    
+    console.log(req.body.password);
+    console.log(typeof(req.body.password))
+
+    const passwordCheck = findUser.checkPassword(req.body.password);
+
+    console.log(passwordCheck); //This returns false even if the password from the seed matches the 'req.body.password'
 
     if (!passwordCheck) {
       res.status(400).send("Sorry, this is an incorrect password!")
       return
-    } else {
-      req.session.save(() => {
-        res.session.user_id = createUser.id;
-        req.session.username = createUser.username;
-        req.session.loggedIn = true;
-        res.send("Log in Successful")
-      })
     }
-  } catch (err) {
+    req.session.save(() => {
+      req.session.user_id = findUser.id;
+      req.session.username = findUser.username;
+      req.session.loggedIn = true;
+      res.send("Log in Successful")
+    })
+    } catch (err) {
     console.log(err);
     res.statusMessage(500).json(err)
   }

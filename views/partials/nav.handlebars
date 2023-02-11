@@ -1,8 +1,13 @@
 <nav>
     <ul>
-        <li>Home</li>
-        <li>Dashboard</li>
-        <li><a href='/login'>Login</a></li>
-        <li>Logout</li>
+        <li><a href='/'>Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+
+        {{!-- Only if the user is logged in will this link appear --}}
+        {{#if logged_in}}
+            <a href="/" id="logout">Logout</a>
+        {{else}}
+            <li><a href='/login'>Login</a></li>
+        {{/if}}
     </ul>
 </nav>

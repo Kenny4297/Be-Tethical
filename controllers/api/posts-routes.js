@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models/Post');
+const { Post } = require('../../models');
 
 //Get all posts
 router.get('/', async (req, res) => {
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
             ]
         });
 
-        res.json(sequelizePostData)
+        res.json(getPostData)
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

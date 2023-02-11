@@ -1,0 +1,19 @@
+{{!-- When user clicks on a post, they can edit their posts --}}
+
+{{> individualPosts post}}
+
+{{#if loggedIn}}
+<form id="comment-form">
+    
+    <label> Comment </label>
+    <input type="text" id="comment-body">
+
+    <button type="submit">Add Comment</button>
+</form>
+{{/if}}
+
+{{> individualComments post.comments}}
+
+{{#if loggedIn}}
+<script src="/js/comments.js"></script>
+{{/if}}
