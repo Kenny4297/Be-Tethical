@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
 //Get a specific post
 router.get('/:id' , async (req, res) => {
     let postId = req.params.id;
-
     try {
         const getSpecificPost = await Post.findOne({ where: { id: postId }})
         if (!getSpecificPost) {

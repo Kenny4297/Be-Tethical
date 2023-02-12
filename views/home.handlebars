@@ -4,9 +4,11 @@
 </div>
 
 {{!-- You need this "|post|" as the [i] variable. Whenever you reference "|post|", you need to keep the "post" variable --}}
-{{#each posts as |post| }}
-<li class="home-posts-area">
-    {{> individualPosts post}}
-</li>
-
-{{/each }}
+<div class="individual-post">
+    {{#each posts as |post| }}
+        <li class="home-posts-area">{{> individualPosts post}} </li>
+        {{#if logged_in}}
+            <button type="submit"><a href="/dashboard/createPost">Leave a comment!</a></button>
+        {{/if}}
+    {{/each }}
+</div>

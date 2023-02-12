@@ -1,14 +1,19 @@
 <h1>Dashboard page</h1>
 
-{{#if posts.length}}
+{{ consoleLog posts }}
+{{ consoleLog userPostsForDashboard}}
 <div>
     <h3>Your Current Posts</h3>
     {{#each posts as |post|}}
         {{> individualPosts post}}
+        {{#each comments as |comment|}}
+            {{> individualComments post}}
+        {{!-- Add a button to delete the post --}}
+        {{!-- Add a button to edit the post --}}
+        {{/each}}
     {{/each}}
 </div>
-{{/if}}
 
 <button type="submit"><a href="/dashboard/createPost">Create New Post</a></button>
 
-<script src="/javascript/addPost.js"></script>
+<script src="/js/addPost.js"></script>
