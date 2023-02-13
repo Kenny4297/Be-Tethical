@@ -39,6 +39,7 @@ router.get('/:id' , async (req, res) => {
 
 //Create a post
 router.post('/', async (req, res) => {
+    console.log("Post route firing")
     try {
         let createPost = await Post.Create({
             postDate: req.body.post_date,

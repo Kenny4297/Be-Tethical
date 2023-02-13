@@ -5,8 +5,14 @@ const path = require('path');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
+const app = express();
+
+//Creating the proper port
+const PORT = process.env.PORT || 3001;
+
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 // Creating a session
 const sess = {
@@ -20,14 +26,13 @@ const sess = {
 };
 
 //Initializing express
-app = express();
+// app = express();
 
 //Getting the HB engine set up
 app.engine('handlebars', hbs.engine); // registering a rendering engine w/ express
 app.set('view engine', 'handlebars'); // designating handlebars as our rendering engine
 
-//Creating the proper port
-const PORT = process.env.PORT || 3001;
+
 
 // Importing some necessary middleware
 app.use(express.static(path.join(__dirname, 'public')));
