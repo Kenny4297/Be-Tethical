@@ -7,7 +7,6 @@ const withAuth = require('../utils/auth');
 //    /dashboard
 //The same as the home page, but only accessible to logged in users
 router.get('/', withAuth, async (req, res) => {
-    console.log(req.session.logged_in)
     try {
         let findAllPosts = await Post.findAll({ where: {
             user_id: req.session.user_id
@@ -29,7 +28,6 @@ router.get('/', withAuth, async (req, res) => {
 //Separate page to edit the selected post
 router.get('/edit/:id', withAuth, async (req, res) => {
     let getPost = req.params.id;
-    console.log(req.session.logged_in)
     try {
         let updatePost = await Post.findOne({ 
             where: { 
@@ -74,7 +72,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 router.get('/createPost', (req, res) => {
-    console.log(req.session.logged_in)
     res.render('addPost');
 })
 

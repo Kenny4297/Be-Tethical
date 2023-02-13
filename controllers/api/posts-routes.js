@@ -5,12 +5,19 @@ const { Post } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const getPostData = await Post.findAll({
-            include: [
-                {
-                    model: Comment,
-                    //I want to view these specific details
-                    attributes: ['id', 'user_id', 'post_id', 'post_date', 'post_content']
+            include: [{
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Comment,
+                //I want to view these specific details
+                attributes: ['id', 'user_id', 'post_id', 'post_date', 'post_content'],
+                include: {
+                    model: User,
+                    attributes: ['username']
                 }
+            }
             ]
         });
 
@@ -39,17 +46,15 @@ router.get('/:id' , async (req, res) => {
 
 //Create a post
 router.post('/', async (req, res) => {
-    console.log("Post route firing")
     try {
-        let createPost = await Post.Create({
+        let createPost = await Post.create({
             postDate: req.body.post_date,
             postText: req.body.post_content,
             postTitle: req.body.post_title,
-            user_id: req.session.user.user_id
+            user_id: req.session.user_id
+            
         })
         res.status(201).send(createPost)
-        console.log("Post created!")
-        console.log(createPost);
     } catch (err) {
         console.log(err);
         res.status(500).json(err)

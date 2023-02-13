@@ -4,6 +4,8 @@ require('dotenv').config();
 //^This is the way WITH the authentication activity
 // let sequelize;
 
+
+//!The way Beau, the tutor, asked me to set it up
 const sequelize = process.env.MYSQL_URL
   ? new Sequelize(process.env.MYSQL_URL)
   : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
@@ -12,6 +14,7 @@ const sequelize = process.env.MYSQL_URL
       port: 3306
     });
 
+//The way I had it set up
 // if (process.env.MYSQL_URL) {
 //   sequelize = new Sequelize(process.env.MYSQL_URL);
 // } else {
