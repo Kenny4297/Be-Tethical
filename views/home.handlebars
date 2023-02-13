@@ -1,6 +1,6 @@
 <div class="home-title">
     <h1 class="home-h1">Welcome to "Be Tethical"!</h1>
-    <h4 class="home-h4">By Gavin Benson</h4>
+    <h4 class="home-h4">By Gavin Belson</h4>
 </div>
 
 {{!-- You need this "|post|" as the [i] variable. Whenever you reference "|post|", you need to keep the "post" variable --}}
@@ -8,7 +8,7 @@
     {{#each posts as |post| }}
         <li class="home-posts-area">{{> individualPosts post}} </li>
         {{!-- Below is what to appear at the bottom of each individual post if the user is logged in!  --}}
-        {{#if logged_in}}
+        {{#if ../logged_in}}
             <button type="submit"><a href="/dashboard/createPost">Leave a comment!</a></button>
         {{/if}}
     {{/each }}

@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
               'comment_content'],
             include: {
                 model: User,
-                attributes: ['username']
+                attributes: [['username', 'user']]
             }
         },
         {
@@ -35,6 +35,8 @@ router.get('/', async (req, res) => {
     })
 
     let posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
 
     res.render('home', {
       posts,
