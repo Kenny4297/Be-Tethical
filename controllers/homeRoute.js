@@ -88,11 +88,11 @@ router.get('/post/:id', async (req, res) => {
       return;
     }
 
-    const post = individualPostData.get({ plain: true });
-    console.log(post)
+    const posts = individualPostData.get({ plain: true });
+
     //Where all the posts will live, independent if it's the users post or not
     res.render('viewIndividualPost', {
-      post,
+      posts,
       logged_in: req.session.logged_in,
     })
   } catch (err) {

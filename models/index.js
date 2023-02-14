@@ -13,7 +13,10 @@ Comment.belongsTo(Post, { foreignKey: 'post_id'});
 //POSTS
 Post.belongsTo(User, { foreignKey: 'user_id'});
 
-Post.hasMany(Comment, { foreignKey: 'post_id'});
+Post.hasMany(Comment, { 
+    foreignKey: 'post_id',
+    onDelete: "NO ACTION"
+});
 
 //USERS
 User.hasMany(Comment, { foreignKey: 'user_id'});

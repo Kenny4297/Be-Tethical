@@ -20,7 +20,8 @@ Comment.init(
             allowNull: false,
             references: {
                 model: 'post',
-                key: 'id'
+                key: 'id',
+                onDelete: "NO ACTION"
             }
         },
         comment_date: {

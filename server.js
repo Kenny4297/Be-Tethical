@@ -51,7 +51,7 @@ app.use(routes);
 // })
 
 //! For when I get Sequelize stuff running
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     //Also can import the Seeds file then change the above to "true"
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
   });
