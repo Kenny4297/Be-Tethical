@@ -46,7 +46,7 @@ app.use(routes);
 
 //! For when I get Sequelize stuff running
 //^ The "force: true" here forces the database to drop all existing tables and recreate them. When deployed, change this value to "false"
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     //Also can import the Seeds file then change the above to "true"
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
   });
