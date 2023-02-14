@@ -24,7 +24,12 @@ nav ul a {
     color: black;
 }
 
-nav ul a:visited {
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
     text-decoration: none;
     color: black;
 }
@@ -67,3 +72,21 @@ nav ul a:hover {
     border: 2px solid red;
     padding-left: 30px;
 }
+
+.dashboard-title {
+    margin: 10px 10px;
+    text-align: center;
+}
+
+.create-something-button {
+    margin: 0 auto;
+    display: flex;
+    background-color: #5CDB95;
+    color: blue;
+    text-decoration: none;
+}
+
+button a {
+    text-decoration: none;
+}
+

@@ -1,9 +1,5 @@
-<h1>Dashboard page</h1>
-
-{{ consoleLog posts }}
-{{ consoleLog userPostsForDashboard}}
 <div>
-    <h3>Your Current Posts</h3>
+    <h1 class="dashboard-title">Your Current Posts</h1>
     {{#each posts as |post|}}
         {{> individualPosts post}}
         {{#each comments as |comment|}}
@@ -15,6 +11,6 @@
     {{/each}}
 </div>
 
-<button type="submit"><a href="/dashboard/createPost">Create New Post</a></button>
+<button class="create-something-button" type="submit"><a href="/dashboard/createPost">Create New Post</a></button>
 
 {{!-- <script src="/js/addPost.js"></script> --}}
