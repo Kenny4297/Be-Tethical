@@ -7,13 +7,14 @@
     {{#each posts as |post|}}
         {{> individualPosts post}}
         {{#each comments as |comment|}}
-            {{> individualComments post}}
+            {{!-- {{> individualComments post}} --}}
         {{!-- Add a button to delete the post --}}
         {{!-- Add a button to edit the post --}}
+            
         {{/each}}
     {{/each}}
 </div>
 
 <button type="submit"><a href="/dashboard/createPost">Create New Post</a></button>
 
-<script src="/js/addPost.js"></script>
+{{!-- <script src="/js/addPost.js"></script> --}}

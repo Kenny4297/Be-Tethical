@@ -25,7 +25,6 @@ Comment.init(
         },
         comment_date: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         comment_content: {
             type: DataTypes.STRING,

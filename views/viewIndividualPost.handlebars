@@ -3,7 +3,7 @@
 {{> individualPosts post}}
 
 {{#if logged_in}}
-<form id="comment-form">
+<form class="comment-form">
     
     <label> Comment </label>
     <input type="text" id="comment-body">
@@ -11,8 +11,9 @@
     <button type="submit">Add Comment</button>
 </form>
 {{/if}}
-
-{{> individualComments post.comments}}
+{{#each comments as |comment|}}
+    {{> individualComments}}
+{{/each }}
 
 {{#if logged_in}}
 <script src="/js/comments.js"></script>

@@ -3,17 +3,13 @@ async function newPostHandler(event) {
 
   const postTitle = document.querySelector('input[name="post-title"]').value;
   const postContent = document.querySelector('input[name="post-content"]').value;
-  console.log(postTitle);
-  console.log(postContent);
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
-      // post_title: postTitle,
-      // post_content: postContent,
-      // post_date: new Date()
-      postTitle,
-      postContent
+      post_title: postTitle,
+      post_content: postContent,
+      post_date: new Date()
     }),
     headers: {
       'Content-Type': 'application/json',

@@ -1,12 +1,13 @@
 async function newPostHandler(event) {
     event.preventDefault();
 
-    const commentContent = document.querySelector('input[name="comment_content"]').value;
+    const commentContent = document.querySelector('input[name="comment-content"]').value;
 
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/comments`, {
       method: 'POST',
       body: JSON.stringify({
-        commentContent
+        comment_content: commentContent,
+        //How to add include the correct post id and a user id??
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -19,4 +20,4 @@ async function newPostHandler(event) {
     }
   }
   
-  document.querySelector('.add-post-form').addEventListener('submit', newPostHandler);
+  document.querySelector('.add-comment-form').addEventListener('submit', newPostHandler);

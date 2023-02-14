@@ -3,7 +3,6 @@ const express = require('express');
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-
 //    /dashboard
 //The same as the home page, but only accessible to logged in users
 router.get('/', withAuth, async (req, res) => {

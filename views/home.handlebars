@@ -6,10 +6,20 @@
 {{!-- You need this "|post|" as the [i] variable. Whenever you reference "|post|", you need to keep the "post" variable --}}
 <div class="individual-post">
     {{#each posts as |post| }}
-        <li class="home-posts-area">{{> individualPosts post}} </li>
-        {{!-- Below is what to appear at the bottom of each individual post if the user is logged in!  --}}
-        {{#if logged_in}}
-            <button type="submit"><a href="/dashboard/createPost">Leave a comment!</a></button>
-        {{/if}}
+        <div class="post-header">
+            <h1><a href="/post/{{id}}">{{post_title}}</a></h1>
+
+            <p>{{user.username}} made this post on {{ format_date post_date }} </p>
+        </div>
     {{/each }}
+
 </div>
+
+
+
+
+{{!-- <li class="home-posts-area">{{> individualPosts post}} </li>
+        {{!-- Below is what to appear at the bottom of each individual post if the user is logged in!  --}}
+        {{#if ../logged_in}}
+            <button type="submit"><a href="/dashboard/createPost">Leave a comment!</a></button>
+        {{/if}} --}}

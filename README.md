@@ -17,7 +17,7 @@
   A CMS that allows users to post their thoughts on anything tech related
 
   ### Installation
-  Visit the site  at: https://be-tethical-production.up.railway.app/
+  Visit the site at: https://be-tethical-production.up.railway.app/
 
   ### Usage
   See above

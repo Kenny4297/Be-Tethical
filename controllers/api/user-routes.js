@@ -128,7 +128,6 @@ router.delete('/:id', async (req, res) => {
 router.post('/login', async (req, res) => {
   let userEmail = req.body.email;
   try {
-    let log = ("checking login API router firing")
     const findUser = await User.findOne({
       where: {
         email: userEmail
