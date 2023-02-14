@@ -18,10 +18,10 @@ Comment.init(
         post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            onDelete: 'cascade',
             references: {
                 model: 'post',
                 key: 'id',
-                onDelete: "NO ACTION"
             }
         },
         comment_date: {

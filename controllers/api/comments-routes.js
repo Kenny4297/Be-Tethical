@@ -4,7 +4,15 @@ const { Comment } = require('../../models');
 //Get all comments
 router.get('/', async (req, res) => {
     try {
-        let getAllComments = await Comment.findAll({})
+        let getAllComments = await Comment.findAll({
+            where: { post_id: post.id },
+            include: [
+            {
+            model: User,
+            attributes: ['username'],
+            },
+        ],
+        })
         res.json(getAllComments)
     } catch (err) {
         console.log(err);
@@ -16,16 +24,20 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {  
     if (req.session) {
         try {
-            //I think that this is the data that I need, will add more if necessary
             let createdComment = await Comment.create({
-                comment_date: new Date(),
-                comment_content: req.body.comment_content,
+                user_id: req.session.user_id, 
+                post_id: req.body.post_id,
+                comment_date: new Date().toISOString(), 
+                comment_content: req.body.comment_text
             });
+            const user = await User.findByPk(req.session.user_id);
+            // Add the user's name to the comment data
+            createdComment.dataValues.user_name = user.user_name;
             res.json(createdComment)
-        } catch (err) {
-            console.log(err);
-            res.status(500).json(err);
-        }
+            } catch (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
     }  
 });
 
