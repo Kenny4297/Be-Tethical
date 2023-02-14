@@ -44,14 +44,9 @@ app.use(session(sess));
 //Make sure your routes are declared AFTER your sessions
 app.use(routes);
 
-// Just for testing purposes until I can get the route to show up, then I will use the sequelize version of this. 
-// app.listen(PORT, () => {
-//     console.log(`Listening on route ${PORT}...`)
-// })
-
 //! For when I get Sequelize stuff running
 //^ The "force: true" here forces the database to drop all existing tables and recreate them. When deployed, change this value to "false"
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     //Also can import the Seeds file then change the above to "true"
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
   });

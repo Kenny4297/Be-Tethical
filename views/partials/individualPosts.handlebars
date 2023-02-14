@@ -1,11 +1,6 @@
 <div class="post-item">
     <div class="post-header"> 
-        {{!-- This is the logic that I want to see if the user is logged in --}}
-        {{!-- {{#if logged_in}}
-                <h1><a href="/post/{{id}}">{{post_title}}</a></h1>
-            {{else}} --}}
-                <p>{{post_title}}</p>
-        {{!-- {{/if}} --}}
+        <p>{{post_title}}</p>
         <p>{{user.username}} made this post on {{ format_date post_date }} </p>
     </div>
     <div class="post-body">
@@ -14,12 +9,12 @@
     <div class="comment-to-post-section">
         <div class="comment">
             {{#each comments as |comment|}}
-                {{> individualComments }}
+                {{> individualComments comment=comment user=user }}
             {{/each}}
-            {{!-- <p class="comment-content">{{ comment_content }}</p>
-            <p>Comment created by {{ user.username }} on {{ format_date comment_date }}</p> --}}
         </div>
-            {{!-- <button><a href="/dashboard/createComment">Add a comment!</a></button> --}}
-        
     </div>
+    <button class="edit-post-button" data-id="{{post.id}}">Edit me</button>
+
 </div>
+
+<script src="/js/editPost.js"></script>

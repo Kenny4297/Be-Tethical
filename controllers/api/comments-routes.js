@@ -31,7 +31,6 @@ router.post('/', async (req, res) => {
                 comment_content: req.body.comment_text
             });
             const user = await User.findByPk(req.session.user_id);
-            // Add the user's name to the comment data
             createdComment.dataValues.user_name = user.user_name;
             res.json(createdComment)
             } catch (err) {
