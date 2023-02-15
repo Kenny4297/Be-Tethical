@@ -10,6 +10,7 @@
 </form>
 {{/if}}
 {{#each comments as |comment|}}
+    {{!-- Here, comments are being passed into the partial. That's how partials get the information! --}}
     {{> individualComments}}
 {{/each }}
 

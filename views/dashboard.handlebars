@@ -1,10 +1,11 @@
+{{!-- Again, we need to pass in 'posts' and 'comments' into the dashboard route in order to use those variables in handlebars --}}
+
 <div>
     <h1 class="dashboard-title">Your Current Posts</h1>
     {{#each posts as |post|}}
         {{> individualPosts post}}
         {{#each comments as |comment|}}            
         {{/each}}
-        {{!-- <button class="edit-post-button" data-id="{{post.id}}">Edit me</button> --}}
         <button class="delete-something-button" data-id="{{post.id}}">Delete me</button>
     {{/each}}
 </div>
@@ -12,4 +13,3 @@
 <button class="create-something-button" type="submit"><a href="/dashboard/createPost">Create New Post</a></button>
 
 <script src="/js/deletePost.js"></script>
-{{!-- <script src="/js/editPost.js"></script> --}}

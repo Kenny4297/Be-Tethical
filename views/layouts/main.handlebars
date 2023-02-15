@@ -1,3 +1,7 @@
+{{!-- This is the skeleton, or template of the project. Technically this page is never rendered, but it's contents have effect on all 'non-partial' documents --}}
+
+{{!-- In order for handlebars to use data, they have to be used in the 'res.render' of their respective routes. If not, you will get undefined for each handlebar variable you wish to use --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +9,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
-  <title>Document</title>
+  <title>Be Tethical</title>
 </head>
 <body>
   <nav>
     <ul>
         <li><a href='/'>Home</a></li>
         {{!-- Only if the user is logged in will this link appear --}}
+        {{!-- Notice how we can use the 'logged_in' here. We can do this by adding it to the 'res.render' in the routes. See line '87' --}}
         {{#if logged_in}}
             <li><a href="/dashboard">Dashboard</a></li>
+            {{!-- Had to change this to an id and not an href, since the href was taking longer than the js logic to log me out!! --}}
             <li id="logout">Logout</li>
         {{else}}
             <li><a href="/login">Dashboard</a></li>
