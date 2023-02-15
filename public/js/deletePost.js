@@ -1,7 +1,6 @@
 async function deletePostFormHandler(event) {
     event.preventDefault();
-   const idToDelete = event.target.getAttribute("data-id")
-    console.log(idToDelete);
+    const idToDelete = event.target.getAttribute("data-id")
     const response = await fetch(`/api/posts/${idToDelete}`, {
       method: 'DELETE',
       });
