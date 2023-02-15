@@ -1,39 +1,21 @@
-{{!-- What "post" logs out --}}
-{{!-- 
-post = {
-  id: 1,
-  post_date: '01/01/2022',
-  post_title: "Clay's post title!",
-  post_content: "This is the body of Clay's post!!",
-  comments: [
-    {
-      id: 2,
-      user_id: 2,
-      post_id: 1,
-      comment_date: '01/01/2022',
-      comment_content: "This is Mike's comment!",
-      user: [Object]
-    }
-  ],
-  user: { username: 'Clay' }
-} 
---}}
-
-<p> {{post.post_title}} </p>
-<p> {{post.post_content}}</p>
-{{consoleLog comment_content}}
-{{!-- Display comment_contents here from the post above --}}
-{{#each post.comments}}
-  <div class="comment">
-    <p>{{comment_content}}</p>
-    <p>Comment by {{user.username}} on {{format_date comment_date}}</p>
-  </div>
-{{/each}}
+<div class="post-item">
+    <h2> {{post.post_title}} </h2>
+    <p> {{post.post_content}}</p>
+    {{consoleLog comment_content}}
+    {{#each post.comments}}
+        <div class="comment">
+            <p>{{comment_content}}</p>
+            <p>Comment by {{user.username}} on {{format_date comment_date}}</p>
+        </div>
+    {{/each}}
+</div>
 
 <form class="comment-form">
-  <label> Comment! </label>
-  <input type="text" name="comment-body">
-  <button type="submit">Add Comment</button>
+    <label> Comment! </label>
+    <input type="text" name="comment-body">
+    <button type="submit">Add Comment</button>
 </form>
 
 <script src="/js/comments.js"></script>
+<script src="/js/addComment.js"></script>
+

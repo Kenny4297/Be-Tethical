@@ -1,5 +1,3 @@
-//Activity 19, self-titled page as reference
-
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');

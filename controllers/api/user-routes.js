@@ -42,6 +42,7 @@ router.post('/', async (req, res) => {
 //Get a specific User
 router.get('/:id', async (req, res) => {
   const specificUser = req.params.id;
+
   try {
     const getSpecificUser = await User.findOne({
       attributes: { exclude: ['password']},
@@ -62,16 +63,15 @@ router.get('/:id', async (req, res) => {
         attributes: ['id', 'comment_date', 'comment_content'],
         include: {
           model: Post,
-          attributes: ['title']
+          attributes: ['post_title']
         }
       },
       {
         model: Post,
-        attributes: ['title']
+        attributes: ['post_title']
     }]});
     if (!getSpecificUser) {
       res.status(404).json({ message: 'No user found with this id' })
-      return;
     } else {
       res.json(getSpecificUser)
     }
@@ -79,49 +79,6 @@ router.get('/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-});
-
-
-//Update a specific user
-router.put('/:id', async (req, res) => {
-  const specificUser = req.params.id;
-  try {
-    let updateSpecificUser = await User.update({
-      individualHooks: true,
-      where: {
-        id: specificUser
-      }
-    })
-    if(!updateSpecificUser[0]) {
-      res.status(404).send("Sorry, no user found!")
-      return
-    } else {
-      res.json(updateSpecificUser);
-    }
-  } catch (err) {
-    console.log(err);
-    res.statusMessage(500).json(err)
-  }
-});
-
-//Delete a specific user
-router.delete('/:id', async (req, res) => {
-  const findSpecificUser = req.params.id;
-  try {
-    let getSpecificUser = User.destroy({
-      where: {
-        id: findSpecificUser
-      }
-    })
-      if (!getSpecificUser) {
-        res.status(404).send("Sorry, no user found with this id!")
-      } else {
-        res.json(getSpecificUser)
-      }
-    } catch (err) {
-      console.log(err);
-      res.statusMessage(500).json(err)
-    }
 });
 
 //User validation for a log in

@@ -4,12 +4,8 @@ const { User, Post, Comment } = require('../models');
 const sequelize = require('../config/connection.js');
 
 //The '/home' route
-//The home page will have all of the users posts
+//The home page will have all of everyones posts
 router.get('/', async (req, res) => {
-  // console.log(req.session);
-  // console.log(req.session.logged_in) //This returns true when I am logged in, and undefined when I am not logged in!
-  // console.log(req.session.username) //This should return the user who is logged in!
-  // console.log(req.session.user_id) //Prints out the userId!
   try {
     const postData = await Post.findAll({
       attributes: [
@@ -52,6 +48,7 @@ router.get('/', async (req, res) => {
 //Get Specific post with it's attached comments
 router.get('/post/:id', async (req, res) => {
   const postId = req.params.id;
+
   try {
     const individualPostData = await Post.findOne({
       where: { 
@@ -83,14 +80,8 @@ router.get('/post/:id', async (req, res) => {
       }]
     });
 
-    if(!individualPostData) {
-      res.status(400).send("Sorry, no post found!");
-      return;
-    }
-
     const post = individualPostData.get({ plain: true });
 
-    //Where all the posts will live, independent if it's the users post or not
     res.render('singlePost', {
       post,
       logged_in: req.session.logged_in,

@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
             },
             {
                 model: Comment,
-                //I want to view these specific details
+                //I want to view these specific columns
                 attributes: ['id', 'user_id', 'post_id', 'post_date', 'post_content'],
                 include: {
                     model: User,
@@ -47,6 +47,8 @@ router.get('/:id' , async (req, res) => {
 //Create a post
 router.post('/', async (req, res) => {
     try {
+        //Remember to add all the columns that have the filed of "AllowNull: False" in the Model's columns!
+        //Make sure they are written correctly. (You messed this up when you tried to create your backend first to match the 'invisible form fields'. They need to match the models columns, not the values in the input fields for the form!!!)
         let createPost = await Post.create({
             post_date: req.body.post_date,
             post_content: req.body.post_content,
@@ -65,7 +67,7 @@ router.put('/:id', async (req, res) => {
     let postId = req.params.id;
 
     try {
-        let postToUpdate = await Post.Update({
+        let postToUpdate = await Post.update({
             post_title: req.body.post_title,
             post_content: req.body.post_content
         }, 
@@ -86,7 +88,6 @@ router.put('/:id', async (req, res) => {
 //Delete a post
 router.delete('/:id', async (req, res) => {
     let postId = parseInt(req.params.id);
-    console.log(postId)
     try {
         let postToDelete = await Post.destroy({ where: { id: postId }});
 

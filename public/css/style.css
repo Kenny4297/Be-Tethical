@@ -55,7 +55,7 @@ nav ul a:hover {
 .post-item {
     border: 2px dotted #05384B;
     text-align: center;
-    width: 40vh;
+    width: 60vh;
     margin: 0 auto;
     padding-bottom: 10px;
 }
@@ -86,7 +86,7 @@ nav ul a:hover {
     text-decoration: none;
 }
 
-.delete-something-button {
+.delete-something-button, .edit-post-button {
     margin: 10px auto;
     margin-bottom: 20px;
     display: flex;

@@ -4,20 +4,18 @@ async function newPostHandler(event) {
     const commentContent = document.querySelector('input[name="comment-content"]').value;
 
     const response = await fetch(`/api/comments`, {
-      method: 'POST',
-      body: JSON.stringify({
-        comment_content: commentContent,
-        //How to add include the correct post id and a user id??
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+        method: 'POST',
+        body: JSON.stringify({
+            comment_content: commentContent,
+            
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
     if (response.ok) {
-      document.location.replace('/dashboard');
+        document.location.replace('/dashboard');
     } else {
-      alert('Failed to add Post');
+        alert('Failed to add Post');
     }
-  }
-  
-  document.querySelector('.add-comment-form').addEventListener('submit', newPostHandler);
+}

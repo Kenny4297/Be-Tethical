@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 //    /dashboard
 //The same as the home page, but only accessible to logged in users
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         let findAllPosts = await Post.findAll({ where: {
             user_id: req.session.user_id
@@ -13,20 +13,22 @@ router.get('/', withAuth, async (req, res) => {
         include: [{ model: Comment }, { model: User }]
         });
 
+        //getting all the posts ready to display
         const posts = findAllPosts.map((post) => post.get({ plain: true }))
         res.render('dashboard', { 
             posts, 
             logged_in: true 
         })
-    } catch {
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
 //Separate page to edit the selected post
-router.get('/edit/:id', withAuth, async (req, res) => {
+router.get('/edit/:id', async (req, res) => {
     let getPost = req.params.id;
+
     try {
         let updatePost = await Post.findOne({ 
             where: { 
@@ -57,16 +59,11 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             }]
         });
     
-        if (!updatePost) {
-            res.status(404).send("Sorry, no posts found!");
-            return
-        } else {
-            const specificPost = updatePost.get({ plain: true });
-            res.render('editPost', { 
-                specificPost, 
-                logged_in: true 
-            })
-        }
+        const specificPost = updatePost.get({ plain: true });
+        res.render('editPost', { 
+            specificPost, 
+            logged_in: true 
+        })
     } catch (err) {
         console.log(err);
         res.status(500).send(err)
@@ -82,5 +79,3 @@ router.get('/createComment', (req, res) => {
 })
 
 module.exports = router;
-
-//So the issue I discovered was not that I wasn't logged in after refresh, but the 'logout' option in the nav bar was not disappearing after I logged out. I have the logic in my navigation links (main.handlebars) that will only show 'logout' if the user is logged in. If I am logged in with a user, and I click 'logout' in the navigation, the logout button still remains, thus me thinking that I was still logged in. But the main overlying issue is still there: why does the 'logout' option still remain, event if I have logged out with the user? Keep in mind that if I click 'log out' again, then the button disappears and I can log back in again. Let me know if this doesn't make sense!
