@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
     try {
         let postToUpdate = await Post.Update({
             post_title: req.body.post_title,
-            pos_content: req.body.post_content
+            post_content: req.body.post_content
         }, 
         { where: { id: postId }})
 

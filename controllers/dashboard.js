@@ -62,7 +62,10 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             return
         } else {
             const specificPost = updatePost.get({ plain: true });
-            res.render('editPost', { specificPost, logged_in: true })
+            res.render('editPost', { 
+                specificPost, 
+                logged_in: true 
+            })
         }
     } catch (err) {
         console.log(err);
