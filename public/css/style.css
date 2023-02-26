@@ -2,6 +2,15 @@ body {
     background-color: #8EE4AF;
 }
 
+:root {
+    --blueGreen: #05386B;
+    --green1: #379683;
+    --green2: #5CDB95;
+    --green3: #8EE4AF;
+    --green4: #EDF5E1;
+
+}
+
 nav {
     background-color: #5CDB95;
     text-align: center;
@@ -52,13 +61,23 @@ nav ul a:hover {
     color: black;
 }
 
-.post-item {
+/* .post-item {
     border: 2px dotted #05384B;
     text-align: center;
     width: 60vh;
     margin: 0 auto;
     padding-bottom: 10px;
     margin-bottom: 20px;
+} */
+
+.post-item {
+    background-color: var(--green2);
+    border: 5px solid var(--green3);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px var(--blueGreen);
+    margin: 2rem auto;
+    max-width: 500px;
 }
 
 .home-posts-area {
