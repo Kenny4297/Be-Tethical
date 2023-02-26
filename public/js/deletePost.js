@@ -15,12 +15,6 @@ async function deletePostFormHandler(event) {
     }
 }
 
-Array.from(document.querySelectorAll('.delete-something-button')).forEach(button => {
-    button.addEventListener('click', event => {
-      deletePostFormHandler(event);
-    });
-});
-
-// document.querySelector('.delete-something-button').addEventListener('click', event => {
-//     deletePostFormHandler(event);
-//   });
+document.querySelector('.delete-something-button').addEventListener('click', event => {
+    deletePostFormHandler(event);
+  });
