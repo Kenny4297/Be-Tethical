@@ -88,6 +88,7 @@ router.put('/:id', async (req, res) => {
 //Delete a post
 router.delete('/:id', async (req, res) => {
     let postId = parseInt(req.params.id);
+    console.log(`The postId is ${postId}`)
     try {
         let postToDelete = await Post.destroy({ where: { id: postId }});
 
