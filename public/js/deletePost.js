@@ -10,7 +10,7 @@ async function deletePostFormHandler(event) {
         document.location.replace('/dashboard');
         return
     } else {
-        alert('Failed to delete post');
+        // alert('Failed to delete post');
         return;
     }
 }

@@ -8,7 +8,6 @@ body {
     --green2: #5CDB95;
     --green3: #8EE4AF;
     --green4: #EDF5E1;
-
 }
 
 nav {
@@ -61,15 +60,6 @@ nav ul a:hover {
     color: black;
 }
 
-/* .post-item {
-    border: 2px dotted #05384B;
-    text-align: center;
-    width: 60vh;
-    margin: 0 auto;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-} */
-
 .post-item {
     background-color: var(--green2);
     border: 5px solid var(--green3);
@@ -91,6 +81,14 @@ nav ul a:hover {
     padding-bottom: 10px;
     border: 2px solid red;
     padding-left: 30px;
+}
+
+#logout {
+    cursor: pointer;
+}
+
+#logout:hover {
+    text-decoration: underline;
 }
 
 .dashboard-title {
