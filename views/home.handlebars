@@ -5,15 +5,15 @@
 
 {{!-- You need this "|post|" as the [i] variable. Whenever you reference "|post|", you need to keep the "post" variable --}}
 <div class="individual-post">
-    <div class="post-item">
+    
     {{#each posts as |post| }}
-        <div class="post-header">
+        <div class="post-header post-item">
             <h1 class="post-header-h1"><a href="/post/{{id}}">{{post_title}}</a></h1>
 
             <p>{{user.username}} made this post on {{ format_date post_date }} </p>
         </div>
     {{/each }}
-    </div>
+    
 
 </div>
 
