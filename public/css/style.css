@@ -70,6 +70,10 @@ nav ul a:hover {
     max-width: 500px;
 }
 
+.post-header-h1 a {
+    color: #05386B;
+}
+
 .home-posts-area {
     list-style-type: none;
     margin-bottom: 5px;
@@ -79,7 +83,6 @@ nav ul a:hover {
     width: 40vh;
     margin: 10px auto;
     padding-bottom: 10px;
-    border: 2px solid red;
     padding-left: 30px;
 }
 

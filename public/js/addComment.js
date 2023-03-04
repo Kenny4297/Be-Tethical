@@ -1,7 +1,7 @@
 async function newPostHandler(event) {
     event.preventDefault();
 
-    const commentContent = document.querySelector('input[name="comment-content"]').value;
+    const commentContent = document.querySelector('textarea[name="comment-content"]').value;
 
     const response = await fetch(`/api/comments`, {
         method: 'POST',
@@ -16,6 +16,6 @@ async function newPostHandler(event) {
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert('Failed to add Post');
+        alert('Failed to add Comment');
     }
 }
