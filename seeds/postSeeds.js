@@ -5,15 +5,15 @@ const postsSeeds = [
     {
         user_id: 1, 
         post_date: "01/01/2022",
-        post_title: "Clay's post title!",
-        post_content: "This is the body of Clay's post!!"
+        post_title: "BioShock Infinite",
+        post_content: "BioShot Infinite's story line is the best storyline in any video game!!"
     },
     //Mike's post
     {
         user_id: 2, 
         post_date: "01/01/2022",
-        post_title: "Mike's post title!",
-        post_content: "This is the body of Mike's post!!"
+        post_title: "Super Smash Bros. Melee",
+        post_content: "Melee is better than ultimate!!"
     },
 ];
 
