@@ -10,6 +10,10 @@ body {
     --green4: #EDF5E1;
 }
 
+.title-description {
+    color:#05386B
+}
+
 nav {
     background-color: #5CDB95;
     text-align: center;
