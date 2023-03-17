@@ -6,17 +6,12 @@
 
 ## TABLE OF CONTENTS
 * [Description](#description)
-* [Licenses](#licenses)
 * [Contribution](#contribution)
-* [Tests](#tests)
 * [Questions](#questions)
 * [Deployment](#deployment)
 
 ### Description
 A CMS that allows users to post their thoughts on anything tech related. Inside the MVC I used Express Handlebars for the frontend, and Sequelize and Express for the backend.  
-
-### Licenses
-MIT
 
 ### Contribution
 Fork the repository and add any extra information you think would make this project better!
