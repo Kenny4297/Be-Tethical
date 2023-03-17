@@ -20,4 +20,4 @@ Fork the repository and add any extra information you think would make this proj
 Any questions? Visit the github repository [here](https://github.com/Kenny4297/Be-Tethical)
 
 ### Deployment
-See the deployment here! [Be Tethical](https://be-tethical-production.up.railway.app/)
+See the deployment <a href="https://be-tethical-production.up.railway.app/" target="_blank">here</a>
