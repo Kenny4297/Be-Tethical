@@ -17,7 +17,7 @@ A CMS that allows users to post their thoughts on anything tech related. Inside 
 Fork the repository and add any extra information you think would make this project better!
 
 ### Questions
-Any questions? Visit the github repository [here](https://github.com/Kenny4297/Be-Tethical)
+Any questions? Visit the github repository: [Be Tethical](https://github.com/Kenny4297/Be-Tethical)
 
 ### Deployment
-See the deployment <a href="https://be-tethical-production.up.railway.app/" target="_blank">here</a>
+See the deployment: <a href="https://be-tethical-production.up.railway.app/" target="_blank">Be Tethical</a>
