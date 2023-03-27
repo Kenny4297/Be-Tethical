@@ -69,51 +69,74 @@ nav ul a:hover {
     color: black;
 }
 
+.dashboard {
+    display: flex;
+}
+
+.dashboard-section {
+    margin: 0 auto;
+}
+
 .post-item {
     margin-bottom: 2rem;
     padding: 1rem;
     border: 2px solid var(--green2);
     border-radius: 10px;
     width: 40vw;
-  }
+}
   
-  .post-header {
+.post-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-  }
+}
   
-  .post-header-h1 {
+.post-header-h1 {
     font-size: 2.5rem;
     margin-bottom: 0;
-  }
+}
   
-  .post-header p {
+.post-header p {
     font-size: 1rem;
     color: var(--green1);
     margin-top: 0.5rem;
-  }
-  
-  .post-body {
+}
+
+.post-body {
     font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
-  .comment-to-post-section {
-    margin-bottom: 1rem;
-  }
-  
-  .comment {
-    border: 2px solid var(--green2);
-    border-radius: 10px;
+    line-height: 1.5;
     padding: 1rem;
+    background-color: var(--green3);
+    color: var(--white);
+    border: 1px solid var(--green2);
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
   }
   
-  .edit-post-button, .delete-something-button {
+.comment {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+  
+.comment .comment-content {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+.comment .comment-info {
+    font-size: 14px;
+    color: #aaa;
+    margin: 5px 0 0;
+}
+
+.btn {
     background-color: var(--green2);
     color: white;
     font-size: 1rem;
@@ -122,12 +145,13 @@ nav ul a:hover {
     border: none;
     cursor: pointer;
     margin-right: 1rem;
-  }
+}
   
-  .edit-post-button a {
+.btn a {
     text-decoration: none;
     color: white;
-  }
+}
+
 .login-card, .signup-card {
     width: 40vh;
     margin: 10px auto;
