@@ -60,33 +60,74 @@ nav ul a:hover {
     color: var(--blueGreen);
 }
 
+.individual-post {
+    margin: 0 auto;
+    max-width: 40vw;
+}
+
 .home-h4 {
     color: black;
 }
 
 .post-item {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 2px solid var(--green2);
+    border-radius: 10px;
+    width: 40vw;
+  }
+  
+  .post-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .post-header-h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+  
+  .post-header p {
+    font-size: 1rem;
+    color: var(--green1);
+    margin-top: 0.5rem;
+  }
+  
+  .post-body {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .comment-to-post-section {
+    margin-bottom: 1rem;
+  }
+  
+  .comment {
+    border: 2px solid var(--green2);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .edit-post-button, .delete-something-button {
     background-color: var(--green2);
-    border: 5px solid var(--green3);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 10px 10px var(--blueGreen);
-    margin: 2rem auto;
-    max-width: 500px;
-}
-
-.post-header-h1 a {
-    color: #05386B;
-}
-
-.post-body {
-    font-size: 1.3rem;
-}
-
-.home-posts-area {
-    list-style-type: none;
-    margin-bottom: 5px;
-}
-
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  
+  .edit-post-button a {
+    text-decoration: none;
+    color: white;
+  }
 .login-card, .signup-card {
     width: 40vh;
     margin: 10px auto;
