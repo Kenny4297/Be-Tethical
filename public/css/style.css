@@ -1,5 +1,5 @@
 body {
-    background-color: #8EE4AF;
+    background-color: var(--green4);
 }
 
 :root {
@@ -57,7 +57,7 @@ nav ul a:hover {
 }
 
 .home-h1 {
-    color: blue;
+    color: var(--blueGreen);
 }
 
 .home-h4 {
@@ -76,6 +76,10 @@ nav ul a:hover {
 
 .post-header-h1 a {
     color: #05386B;
+}
+
+.post-body {
+    font-size: 1.3rem;
 }
 
 .home-posts-area {
@@ -128,6 +132,86 @@ button a {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Login Form */
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--green4);
+    overflow: hidden;
+    margin: 0;
+}
+  
+.login-card,.signup-card {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 350px;
+    text-align: center;
+}
+  
+.page-title {
+    color: var(--blueGreen);
+}
+  
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.form-input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--green4);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+  
+.form-input:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--green2);
+}
+  
+.btn {
+    color: #fff;
+    background-color: var(--green2);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+  
+.btn:hover {
+    background-color: var(--green1);
+}
+  
+.login-page .signup-card {
+    margin-left: 1rem;
+}
+  /* Media Queries */
+  
+@media (max-width: 768px) {
+    .login-page {
+      flex-direction: column;
+    }
+    
+    .login-card, .signup-card {
+      margin: 0;
+      width: 100%;
+    }
+    
+    .signup-card {
+      margin-top: 50px;
+    }
 }
 
 
