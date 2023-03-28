@@ -6,8 +6,4 @@ module.exports = {
         const year = newDate.getFullYear();
         return `${month}/${day}/${year}`;
     },
-    consoleLog: (context) => {
-        console.log(context);
-        return '';
-    }
-};
+}
