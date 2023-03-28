@@ -124,7 +124,7 @@ nav ul a:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
 }
-  
+
 .comment {
     border: 1px solid #ddd;
     margin: 10px 0;
@@ -141,8 +141,9 @@ nav ul a:hover {
   
 .comment .comment-info {
     font-size: 14px;
-    color: #aaa;
+    color: var(--green1);
     margin: 5px 0 0;
+    font-style: italic;
 }
 
 .add-a-comment {

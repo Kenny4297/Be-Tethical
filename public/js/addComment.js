@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
         },
       });
 
-      console.log(postId);
-      console.log(response);
+      // console.log(postId);
+      // console.log(response);
   
       if (response.ok) {
         const commentData = await response.json();

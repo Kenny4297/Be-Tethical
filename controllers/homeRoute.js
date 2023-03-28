@@ -78,22 +78,23 @@ router.get('/post/:id', withAuth, async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['id', 'username']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['id', 'username']
         }
       ]
     });
 
-    console.log(individualPostData)
+    // console.log(individualPostData)
 
     const post = individualPostData.get({ plain: true });
     res.render('singlePost', {
       post,
       logged_in: req.session.logged_in,
+      user: req.session.user,
       dummy: true
     });
   } catch (err) {
