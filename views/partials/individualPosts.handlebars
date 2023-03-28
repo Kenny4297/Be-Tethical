@@ -1,21 +1,26 @@
-<div class="post-item">
-    <div class="post-header"> 
-        <h2>{{post_title}}</h2>
-        <p>{{user.username}} made this post on {{ format_date post_date }} </p>
+<div class="post-item" data-post-id="{{postId}}">
+  <div class="post-header"> 
+    <h2 class="post-title">{{post_title}}</h2>
+    
+  </div>
+  <div class="post-body">
+    <p>{{ post_content }}</p>
+    <p class="post-info">{{ format_date post_date }}</p>
+  </div>
+  <div class="comment-to-post-section">
+    <div>
+      {{#each comments as |comment|}}
+        {{> individualComments comment=comment user=user }}
+      {{/each}}
     </div>
-    <div class="post-body">
-        {{ post_content }}
-    </div>
-    <div class="comment-to-post-section">
-        <div class="comment">
-            {{#each comments as |comment|}}
-                {{> individualComments comment=comment user=user }}
-            {{/each}}
-        </div>
-    </div>
-    <button class="edit-post-button" data-id="{{post.id}}"><a href="/dashboard/edit/{{id}}">Edit me</a></button>
-    <button class="delete-something-button" data-id="{{id}}">Delete me</button>
+  </div>
+  <div class="post-options" data-post-id="{{postId}}">
+    <button class="create-comment-button btn" type="button">Add a Comment!</button>
+    <button class="edit-post-button btn" data-id="{{postId}}"><a href="/dashboard/edit/{{id}}">Edit me</a></button>
+    <button class="delete-something-button btn" data-id="{{id}}">Delete me</button>
+  </div>
 </div>
 
 <script src="/js/editPost.js"></script>
 <script src="/js/deletePost.js"></script>
+<script src="/js/addComment.js"></script>
