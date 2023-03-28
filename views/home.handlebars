@@ -9,13 +9,11 @@
   {{#each posts as |post| }}
     <div class="post-item">
       <div class="post-header">
-        <p>test</p>
-        {{!-- {{#if logged_in}}
-          <h1 class="post-title"><a href="/post/{{post.id}}">{{post.post_title}}</a></h1>
+        {{#if post.logged_in}}
+          <h1 class="post-title"><a href="/post/{{post.id}}">{{post_title}}</a></h1>
         {{else}}
-          <h1 class="post-title"><a href='/login'>{{post.post_title}}</a></h1>
-        {{/if}} --}}
-          <h1 class="post-title"><a href="/post/{{post.id}}">{{post.post_title}}</a></h1>
+          <h1 class="post-title"><a href='/login'>{{post_title}}</a></h1>
+        {{/if}}
 
         <p class="post-info">{{user.username}} made this post on {{ format_date post_date }}</p>
       </div>

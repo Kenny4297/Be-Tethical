@@ -81,6 +81,11 @@ nav ul a:hover {
     margin: 0 auto;
 }
 
+.single-post {
+    display: flex;
+    justify-content: center;
+}
+
 .post-item {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -118,7 +123,7 @@ nav ul a:hover {
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
-  }
+}
   
 .comment {
     border: 1px solid #ddd;

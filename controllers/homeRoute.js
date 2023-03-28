@@ -34,11 +34,17 @@ router.get('/', withAuth, async (req, res) => {
         }]
     })
 
-    let posts = postData.map((post) => post.get({ plain: true }));
     console.log(`logged in status ${req.session.logged_in}`)
+    console.log('dummy:', true);
     res.render('home', {
-      posts,
-      logged_in: req.session.logged_in,
+      posts: postData.map(post => {
+        const plainPost = post.get({ plain: true });
+        return {
+          ...plainPost,
+          logged_in: req.session.logged_in
+        };
+      }),
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     console.log(err)
@@ -84,7 +90,8 @@ router.get('/post/:id', withAuth, async (req, res) => {
     const post = individualPostData.get({ plain: true });
     res.render('singlePost', {
       post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in, 
+      dummy: true
     })
   } catch (err) {
     console.log(err);
