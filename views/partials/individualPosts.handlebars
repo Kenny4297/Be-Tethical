@@ -1,4 +1,4 @@
-<div class="post-item">
+<div class="post-item" data-post-id="{{postId}}">
   <div class="post-header"> 
     <h2 class="post-title">{{post_title}}</h2>
     
@@ -14,12 +14,13 @@
       {{/each}}
     </div>
   </div>
-  <div class="post-options">
-    <button class="create-something-button btn" type="submit"><a href="/dashboard/createComment">Add a Comment!</a></button>
-    <button class="edit-post-button btn" data-id="{{post.id}}"><a href="/dashboard/edit/{{id}}">Edit me</a></button>
+  <div class="post-options" data-post-id="{{postId}}">
+    <button class="create-comment-button btn" type="button">Add a Comment!</button>
+    <button class="edit-post-button btn" data-id="{{postId}}"><a href="/dashboard/edit/{{id}}">Edit me</a></button>
     <button class="delete-something-button btn" data-id="{{id}}">Delete me</button>
   </div>
 </div>
 
 <script src="/js/editPost.js"></script>
 <script src="/js/deletePost.js"></script>
+<script src="/js/addComment.js"></script>

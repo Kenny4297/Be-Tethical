@@ -4,8 +4,14 @@ const sequelize = require('./config/connection');
 const path = require('path');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({
+  helpers: {
+    format_date: helpers.format_date
+  }
+});
 const app = express();
+
+
 
 //Creating the proper port
 const PORT = process.env.PORT || 3002;
@@ -52,5 +58,5 @@ sequelize.sync({ force: forceValue }).then(() => {
     //Also can import the Seeds file then change the above to "true"
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
   });
-  
+
 
