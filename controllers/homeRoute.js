@@ -34,8 +34,7 @@ router.get('/', withAuth, async (req, res) => {
         }]
     })
 
-    console.log(`logged in status ${req.session.logged_in}`)
-    console.log('dummy:', true);
+    
     res.render('home', {
       posts: postData.map(post => {
         const plainPost = post.get({ plain: true });
@@ -67,38 +66,41 @@ router.get('/post/:id', withAuth, async (req, res) => {
         'post_title',
         'post_content'
       ],
-      include: [{
-        model: Comment,
-        attributes: [
-          'id',
-          'user_id',
-          'post_id',
-          'comment_date',
-          'comment_content'
-        ],
-        include: {
+      include: [
+        {
+          model: Comment,
+          attributes: [
+            'id',
+            'user_id',
+            'post_id',
+            'comment_date',
+            'comment_content'
+          ],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
+        {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }]
+      ]
     });
+
+    console.log(individualPostData)
 
     const post = individualPostData.get({ plain: true });
     res.render('singlePost', {
       post,
-      logged_in: req.session.logged_in, 
+      logged_in: req.session.logged_in,
       dummy: true
-    })
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
 //! router.get('/post/:id', async (req, res) => {
 //   const postId = req.params.id;
 
