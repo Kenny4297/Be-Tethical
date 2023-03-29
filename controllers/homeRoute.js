@@ -2,10 +2,11 @@ const router = require('express').Router();
 const express = require('express');
 const { User, Post, Comment } = require('../models');
 const sequelize = require('../config/connection.js');
+const withAuth = require('../utils/auth')
 
 //The '/home' route
-//The home page will have all of everyones posts
-router.get('/', async (req, res) => {
+//The home page will have all of everyone's posts
+router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       attributes: [
@@ -33,10 +34,15 @@ router.get('/', async (req, res) => {
         }]
     })
 
-    let posts = postData.map((post) => post.get({ plain: true }));
-
+    
     res.render('home', {
-      posts,
+      posts: postData.map(post => {
+        const plainPost = post.get({ plain: true });
+        return {
+          ...plainPost,
+          logged_in: req.session.logged_in
+        };
+      }),
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -46,7 +52,7 @@ router.get('/', async (req, res) => {
 });
 
 //Get Specific post with it's attached comments
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   const postId = req.params.id;
 
   try {
@@ -60,32 +66,35 @@ router.get('/post/:id', async (req, res) => {
         'post_title',
         'post_content'
       ],
-      include: [{
-        model: Comment,
-        attributes: [
-          'id',
-          'user_id',
-          'post_id',
-          'comment_date',
-          'comment_content'
-        ],
-        include: {
+      include: [
+        {
+          model: Comment,
+          attributes: [
+            'id',
+            'user_id',
+            'post_id',
+            'comment_date',
+            'comment_content'
+          ],
+          include: {
+            model: User,
+            attributes: ['id', 'username']
+          }
+        },
+        {
           model: User,
-          attributes: ['username']
+          attributes: ['id', 'username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }]
+      ]
     });
 
     const post = individualPostData.get({ plain: true });
-
     res.render('singlePost', {
       post,
       logged_in: req.session.logged_in,
-    })
+      user: req.session.user,
+      dummy: true
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

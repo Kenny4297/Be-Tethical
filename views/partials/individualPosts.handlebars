@@ -5,17 +5,16 @@
   </div>
   <div class="post-body">
     <p>{{ post_content }}</p>
-    <p class="post-info">{{ format_date post_date }}</p>
+    <p class="post-info">Added on: {{ format_date post_date }}</p>
   </div>
   <div class="comment-to-post-section">
     <div>
       {{#each comments as |comment|}}
-        {{> individualComments comment=comment user=user }}
+        {{> individualComments2 comment=comment user=user }}
       {{/each}}
     </div>
   </div>
   <div class="post-options" data-post-id="{{postId}}">
-    <button class="create-comment-button btn" type="button">Add a Comment!</button>
     <button class="edit-post-button btn" data-id="{{postId}}"><a href="/dashboard/edit/{{id}}">Edit me</a></button>
     <button class="delete-something-button btn" data-id="{{id}}">Delete me</button>
   </div>
