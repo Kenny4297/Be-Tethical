@@ -3,14 +3,11 @@
     <div class="post-header"> 
       <h2 class="post-title">{{post.post_title}}</h2>
 
-    <p>Test</p>
-    <p>{{log post.user}}</p>
-
     </div>
     <div class="post-body">
-      <p>{{post.user.username}} at {{ format_date post.post_date }}</p>
+      <p>{{post.post_content}}</p>
+      <p class="post-info">{{post.user.username}} at {{ format_date post.post_date }}</p>
     </div>
-    {{log post}}
     <div class="comment-to-post-section">
         <div>
             {{#each post.comments as |comment|}}

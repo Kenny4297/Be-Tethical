@@ -1,7 +1,5 @@
 async function editPostFormHandler(event) {
-    console.log("Edit post button firing")
         event.preventDefault();
-        console.log("Edit post button firing")
 
         const postTitle = document.querySelector('input[name="post-title"]').value.trim();
         const postContent = document.querySelector('input[name="post-content"]').value.trim();

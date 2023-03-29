@@ -11,8 +11,6 @@ const hbs = exphbs.create({
 });
 const app = express();
 
-
-
 //Creating the proper port
 const PORT = process.env.PORT || 3002;
 

@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-//!The way Beau, the tutor, asked me to set it up
 const sequelize = process.env.MYSQL_URL
   ? new Sequelize(process.env.MYSQL_URL)
   : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {

@@ -14,6 +14,8 @@ body {
     --green4: #EDF5E1;
 }
 
+/* =====HEADER===== */
+
 .title-description {
     color:#05386B
 }
@@ -40,6 +42,10 @@ nav ul a {
     color: black;
 }
 
+a {
+    color: black;
+}
+
 a:visited {
     text-decoration: none;
     color: black;
@@ -54,24 +60,38 @@ nav ul a:hover {
     text-decoration: underline;
 }
 
+/* =====TITLE===== */
+
 .home-title {
     text-align: center;
-    width: 80vh;
+    width: 100vh;
     margin: 10px auto;
 }
 
 .home-h1 {
     color: var(--blueGreen);
+    text-align: center;
+    width: 100%;
 }
+
+.title-description {
+    color: purple;
+}
+
+/* =====HOME PAGE===== */
 
 .individual-post {
     margin: 0 auto;
-    max-width: 40vw;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-h4 {
     color: black;
 }
+
+/* =====DASHBOARD===== */
 
 .dashboard {
     display: flex;
@@ -80,6 +100,8 @@ nav ul a:hover {
 .dashboard-section {
     margin: 0 auto;
 }
+
+/* =====POSTS===== */
 
 .single-post {
     display: flex;
@@ -91,7 +113,12 @@ nav ul a:hover {
     padding: 1rem;
     border: 2px solid var(--green2);
     border-radius: 10px;
-    width: 40vw;
+}
+
+.post-info {
+    font-size: .9rem;
+    color: grey;
+    font-style: italic;
 }
   
 .post-header {
@@ -105,6 +132,11 @@ nav ul a:hover {
 .post-header-h1 {
     font-size: 2.5rem;
     margin-bottom: 0;
+    margin: 0 auto;
+}
+
+.create-a-post-h2 {
+    text-align: center;
 }
   
 .post-header p {
@@ -119,11 +151,68 @@ nav ul a:hover {
     padding: 1rem;
     background-color: var(--green3);
     color: var(--white);
-    border: 1px solid var(--green2);
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
 }
+
+.add-post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+  
+.post-item {
+    width: 50vw;
+    background-color: var(--green4);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.post-item h2 {
+    color: var(--blueGreen);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+  
+.add-post-form p {
+    margin-bottom: 10px;
+}
+  
+label {
+    display: block;
+    font-weight: bold;
+    color: var(--blueGreen);
+    margin-bottom: 5px;
+}
+  
+input[type="text"], textarea {
+    width: 20vw;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--green1);
+    color: white;
+}
+  
+button[type="submit"] {
+    padding: 10px;
+    background-color: var(--green2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+  
+button[type="submit"]:hover {
+    background-color: var(--green3);
+}
+
+/* =====COMMENTS===== */
 
 .comment {
     border: 1px solid #ddd;
@@ -137,7 +226,7 @@ nav ul a:hover {
     font-size: 16px;
     line-height: 1.5;
     margin: 0;
-  }
+}
   
 .comment .comment-info {
     font-size: 14px;
@@ -218,6 +307,8 @@ nav ul a:hover {
     color: white;
 }
 
+/* =====COMMENTS===== */
+
 .login-card, .signup-card {
     width: 40vh;
     margin: 10px auto;
@@ -265,7 +356,7 @@ button a {
     align-items: center;
 }
 
-/* Login Form */
+/* ===== LOGIN FORM===== */
 
 .login-page {
     display: flex;

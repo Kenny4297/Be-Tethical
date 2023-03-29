@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     async function newCommentHandler(event) {
       event.preventDefault();
   
-
       function formatDate(date) {
         const newDate = new Date(date);
         const month = newDate.getMonth() + 1;
@@ -27,13 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Content-Type': 'application/json',
         },
       });
-
-      // console.log(postId);
-      // console.log(response);
   
       if (response.ok) {
         const commentData = await response.json();
-        console.log(commentData)
         const commentTemplate = `
           <div class="comment">
             <p class="comment-content">${commentData.comment_content}</p>

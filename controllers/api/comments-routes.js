@@ -32,7 +32,6 @@ router.post('/', async (req, res) => {
     //checking to see if the user is logged in. Only logged in users can make posts
     if (req.session) {
       try {
-        console.log(req.body);
         let createdComment = await Comment.create({
           //Make sure you add in all the fields that are "allowNull: false" in the model
           user_id: req.session.user_id, 
