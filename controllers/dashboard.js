@@ -70,9 +70,21 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
-router.get('/createPost', (req, res) => {
-    res.render('addPost');
-})
+router.get('/createPost', withAuth, async (req, res) => {
+    try {
+      // Find the current user
+      const currentUser = await User.findByPk(req.session.user_id);
+  
+      // Render the addPost template with the user context
+      res.render('addPost', { 
+        user: currentUser.get({ plain: true }), 
+        logged_in: true 
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 router.get('/createComment', (req, res) => {
     res.render('addComment')
