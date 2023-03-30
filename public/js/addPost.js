@@ -1,6 +1,9 @@
 async function newPostHandler(event) {
     event.preventDefault();
 
+    const nav = document.querySelector('.nav');
+    // nav.classList.add('hide');
+
     const postTitle = document.querySelector('input[name="post-title"]').value;
     const postContent = document.querySelector('textarea[name="post-content"]').value;
 
