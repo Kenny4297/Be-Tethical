@@ -28,8 +28,6 @@ const sess = {
   })
 };
 
-//Initializing express
-// app = express();
 
 //Getting the HB engine set up
 app.engine('handlebars', hbs.engine); // registering a rendering engine w/ express
