@@ -21,7 +21,7 @@ async function editPostFormHandler(event) {
     });
     if (response.ok) {
         document.location.replace('/dashboard');
-        alert("Post added!")
+        alert("Post Updated!")
     } else {
         alert('Failed to add Post');
     }

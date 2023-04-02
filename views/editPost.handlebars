@@ -1,17 +1,20 @@
 {{!-- Here we can edit and view a post when the user clicks on it --}}
-<div class="post-item">
-    <h2>Edit Post</h2>
-    <form class="edit-post-form">
+<div class="add-post-container">
+    <div class="post-item">
+        <h2>Edit Post</h2>
+        <form class="edit-post-form">
 
-        <label for="post-title">Edit Title</label>
-        <p><input type="text" name="post-title" value="{{specificPost.post_title}}" /></p>
+            <label for="post-title">Edit Title</label>
+            <p><input type="text" name="post-title" value="{{specificPost.post_title}}" /></p>
 
-        <label for="post-content">Edit Post</label>
-        <p><input type="text" name="post-content" value="{{specificPost.post_content}}" /></p>
+            <label for="post-content">Edit Post</label>
+            <p><input type="text" name="post-content" value="{{specificPost.post_content}}" /></p>
 
-        <button type="submit" class="button edit-post-button">Confirm Changes</button>
-    </form>
+            <button type="submit" class="button edit-post-button">Confirm Changes</button>
+        </form>
+    </div>
 </div>
+
 
 <script src="/js/editPost.js"></script>
 

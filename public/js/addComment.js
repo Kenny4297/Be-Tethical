@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <form class="add-comment-form">
             <label for="comment-content">Add your thoughts!</label>
             <textarea type="text" name="comment-content" id="comment-title"></textarea>
-            <button class="add-comment" type="submit">Post your Comment!</button>
+            <button class="add-comment" type="submit">Add your Comment!</button>
           </form>
         `;
         createCommentButton.insertAdjacentHTML('afterend', commentFormTemplate);
