@@ -15,7 +15,7 @@
 This project is licensed under the MIT license.
 
 ## Description
-A full-stack content management system that allows users to post thoughts about any video game, and also comment on others’ thoughts. 
+A full-stack content management system that allows users to post thoughts and comments about any video game they enjoy playing. 
 
 ## Motivation
 I wanted to push myself to create an interactive full stack project, at the same time keeping the topic fun and simple.
