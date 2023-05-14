@@ -18,7 +18,7 @@ This project is licensed under the MIT license.
 A full-stack content management system that allows users to post thoughts and comments about any video game they enjoy playing. 
 
 ## Motivation
-I wanted to push myself to create an interactive full stack project, at the same time keeping the topic fun and simple.
+I wanted to push myself to create an interactive full stack project while keeping the topic fun and simple.
 
 ## Technologies
 For the front end I used JavaScript, Express-Handlebars, CSS, HTML, and the back end consists of Node.js, SQL, MySQL, Sequelize, and bcrypt for user authentication. 
